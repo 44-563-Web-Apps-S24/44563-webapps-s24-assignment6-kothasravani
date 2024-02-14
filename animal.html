@@ -17,6 +17,7 @@
         <br>
         <br><button type="button" onclick="checkAnimal()" style="font-size: 100%; font-family: cursive;">Check the guess</button>
     </form>
+    <br>
     <div id="result" style="font-size: 100%; font-family: cursive;"></div>
     <script>
         let wrong = 0; // Global variables declaration
@@ -36,6 +37,84 @@
             guessAnimalInput.value = ''; // Clear the guess input
         }
     </script>
+    <br>
+    <div id="imageContainer" style="font-size: 100%; font-family: cursive;">
+        <img src="drink1.png" alt="Drink 1" id="selectedImage" onclick="selectImage()" width="150" height="150">
+    </div>
+
+    <script>
+        // Global variable
+        let useImage = 1;
+
+        // Function to select the image
+        function selectImage() {
+            const selectedImage = document.getElementById('selectedImage');
+
+            // Switch on useImage variable
+            switch (useImage) {
+                case 1:
+                    selectedImage.src = "drink2.png";
+                    useImage = 2;
+                    break;
+                case 2:
+                    selectedImage.src = "drink3.png";
+                    useImage = 3;
+                    break;
+                case 3:
+                    selectedImage.src = "drink1.png";
+                    useImage = 1;
+                    break;
+                default:
+                    break;
+            }
+        }
+    </script>
+    <br>
+    <label for="price" style="font-size: 100%; font-family: cursive;">Enter price per:</label>
+    <input type="number" id="price" value="10">
+
+    <br>
+
+    <label for="count" style="font-size: 100%; font-family: cursive;">Enter the number of items:</label>
+    <input type="number" id="count" value="9">
+
+    <br>
+
+    <label for="reductions" style="font-size: 100%; font-family: cursive;">Enter the discount percent:</label>
+    <input type="number" id="reductions" value="5">
+
+    <br>
+
+    <br><button type="button" onclick="discount()" style="font-size: 100%; font-family: cursive;">Show total</button>
+
+    <div id="result"></div>
+
+    <script style="font-size: 100%; font-family: cursive;">
+        // Function to calculate discounts and display totals
+        function discount() {
+            // Get input values
+            const priceInput = document.getElementById('price').value;
+            const countInput = document.getElementById('count').value;
+            const reductionsInput = document.getElementById('reductions').value;
+
+            // Initialize local variable
+            let toShow = "Totals are: ";
+
+            // Loop to calculate total values
+            for (let i = 0; i < 5; i++) {
+                // Calculate cost with discount
+                const discountPercentage = parseInt(reductionsInput) + i;
+                const calculatedCost = (priceInput * countInput * (100 - discountPercentage) / 100).toFixed(2);
+
+                // Append values to toShow
+                toShow += `${discountPercentage}% is ${calculatedCost}; `;
+            }
+
+            // Replace the innerHTML for the result element
+            document.getElementById('result').innerHTML = toShow;
+        }
+    </script>
+    
 
 </body>
 
