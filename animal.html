@@ -8,19 +8,20 @@
 </head>
 
 <body style="background-color: cadetblue;">
-    <h1 style="font-size: 200%; font-family: cursive;"> Animal game by Sravani Kotha</h1> 
+    <h1 style="font-size: 200%; font-family: cursive;"> Animal game by Sravani Kotha</h1>
     <form>
         <label for="hiddenAnimal" style="font-size: 100%; font-family: cursive;">The hidden animal type:</label>
         <input type="password" id="hiddenAnimal" value="Chicken">
         <label for="guessAnimal" style="font-size: 100%; font-family: cursive;">Guess the animal:</label>
         <input style="font-size: 100%; font-family: cursive;" type="text" id="guessAnimal">
         <br>
-        <br><button type="button" onclick="checkAnimal()" style="font-size: 100%; font-family: cursive;">Check the guess</button>
+        <br><button type="button" onclick="checkAnimal()" style="font-size: 100%; font-family: cursive;">Check the
+            guess</button>
     </form>
     <br>
     <div id="result" style="font-size: 100%; font-family: cursive;"></div>
     <script>
-        let wrong = 0; // Global variables declaration
+        let wrong = 0; // Global variables 
         let correct = 0;
         function checkAnimal() {// Function to check the guessed animal
             const hiddenAnimalInput = document.getElementById('hiddenAnimal');// Get values from input elements
@@ -43,14 +44,9 @@
     </div>
 
     <script>
-        // Global variable
-        let useImage = 1;
-
-        // Function to select the image
-        function selectImage() {
-            const selectedImage = document.getElementById('selectedImage');
-
-            // Switch on useImage variable
+        let useImage = 1;// Global variable
+        function selectImage() {      // Function to select the image
+            const selectedImage = document.getElementById('selectedImage'); // Switch on useImage variable
             switch (useImage) {
                 case 1:
                     selectedImage.src = "drink2.png";
@@ -90,31 +86,21 @@
     <div id="result"></div>
 
     <script style="font-size: 100%; font-family: cursive;">
-        // Function to calculate discounts and display totals
-        function discount() {
-            // Get input values
-            const priceInput = document.getElementById('price').value;
+        function discount() {  // Function to calculate discounts and display totals
+            const priceInput = document.getElementById('price').value;   // Get input values
             const countInput = document.getElementById('count').value;
-            const reductionsInput = document.getElementById('reductions').value;
+            const reductionsInput = document.getElementById('reductions').value;   // Initialize local variable
 
-            // Initialize local variable
-            let toShow = "Totals are: ";
-
-            // Loop to calculate total values
-            for (let i = 0; i < 5; i++) {
-                // Calculate cost with discount
+            let toShow = "Totals are: ";  // Loop to calculate total values
+            for (let i = 0; i < 5; i++) {   // Calculate cost with discount
                 const discountPercentage = parseInt(reductionsInput) + i;
                 const calculatedCost = (priceInput * countInput * (100 - discountPercentage) / 100).toFixed(2);
-
-                // Append values to toShow
-                toShow += `${discountPercentage}% is ${calculatedCost}; `;
+                toShow += `${discountPercentage}% is ${calculatedCost}; `;    // Append values to toShow
             }
-
-            // Replace the innerHTML for the result element
-            document.getElementById('result').innerHTML = toShow;
+            document.getElementById('result').innerHTML = toShow; // Replace the innerHTML for the result element
         }
     </script>
-    
+
 
 </body>
 
