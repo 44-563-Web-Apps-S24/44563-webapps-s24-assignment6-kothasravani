@@ -23,7 +23,7 @@
     <script>
         let wrong = 0; // Global variables 
         let correct = 0;
-        function checkAnimal() {// Function to check the guessed animal
+        function checkAnimal() {
             const hiddenAnimalInput = document.getElementById('hiddenAnimal');// Get values from input elements
             const guessAnimalInput = document.getElementById('guessAnimal');
             const resultElement = document.getElementById('result');
@@ -45,8 +45,8 @@
 
     <script>
         let useImage = 1;// Global variable
-        function selectImage() {      // Function to select the image
-            const selectedImage = document.getElementById('selectedImage'); // Switch on useImage variable
+        function selectImage() {
+            const selectedImage = document.getElementById('selectedImage');
             switch (useImage) {
                 case 1:
                     selectedImage.src = "drink2.png";
@@ -68,39 +68,65 @@
     <br>
     <label for="price" style="font-size: 100%; font-family: cursive;">Enter price per:</label>
     <input type="number" id="price" value="10">
-
     <br>
-
     <label for="count" style="font-size: 100%; font-family: cursive;">Enter the number of items:</label>
     <input type="number" id="count" value="9">
-
     <br>
-
     <label for="reductions" style="font-size: 100%; font-family: cursive;">Enter the discount percent:</label>
     <input type="number" id="reductions" value="5">
-
     <br>
-
     <br><button type="button" onclick="discount()" style="font-size: 100%; font-family: cursive;">Show total</button>
 
-    <div id="result"></div>
+    <div id="result" style="font-size: 100%; font-family: cursive;"></div>
+    <br>
+    <form>
+        <label style="font-size: 100%; font-family: cursive;"><input type="radio" name="operation" value="sum"
+                onclick="chooseOp()"> Sum</label>
+        <label style="font-size: 100%; font-family: cursive;"><input type="radio" name="operation" value="multiply"
+                onclick="chooseOp()"> Multiply</label>
+        <label style="font-size: 100%; font-family: cursive;"><input type="radio" name="operation" value="exponent"
+                onclick="chooseOp()"> Exponent</label>
+    </form>
+    <br>
+    <div id="operationResult"  style="font-size: 100%; font-family: cursive;"></div>
 
     <script style="font-size: 100%; font-family: cursive;">
-        function discount() {  // Function to calculate discounts and display totals
-            const priceInput = document.getElementById('price').value;   // Get input values
+        function discount() {
+            const priceInput = document.getElementById('price').value;
             const countInput = document.getElementById('count').value;
-            const reductionsInput = document.getElementById('reductions').value;   // Initialize local variable
+            const reductionsInput = document.getElementById('reductions').value;
+            let toShow = "Totals are: ";
 
-            let toShow = "Totals are: ";  // Loop to calculate total values
-            for (let i = 0; i < 5; i++) {   // Calculate cost with discount
+            for (let i = 0; i < 5; i++) {
                 const discountPercentage = parseInt(reductionsInput) + i;
                 const calculatedCost = (priceInput * countInput * (100 - discountPercentage) / 100).toFixed(2);
-                toShow += `${discountPercentage}% is ${calculatedCost}; `;    // Append values to toShow
+
+                toShow += `${discountPercentage}% is ${calculatedCost}; `;
             }
-            document.getElementById('result').innerHTML = toShow; // Replace the innerHTML for the result element
+            document.getElementById('result').innerHTML = toShow;
+        }
+
+        function chooseOp() {
+            const priceInput = parseFloat(document.getElementById('price').value);
+            const reductionsInput = parseFloat(document.getElementById('reductions').value);
+            const selectedOperation = document.querySelector('input[name="operation"]:checked').value;
+            let operationResult;  //arthematic operations
+            switch (selectedOperation) {
+                case 'sum':
+                    operationResult = priceInput + reductionsInput;
+                    break;
+                case 'multiply':
+                    operationResult = priceInput * reductionsInput;
+                    break;
+                case 'exponent':
+                    operationResult = Math.pow(priceInput, reductionsInput);
+                    break;
+                default:
+                    operationResult = 'Invalid operation';
+            }
+            document.getElementById('operationResult').innerHTML = `Result of ${selectedOperation} is ${operationResult}`;
         }
     </script>
-
 
 </body>
 
