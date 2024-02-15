@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Packs for a Trip</title>
+</head>
+
+<body style="background-color: cadetblue;">
+    <h1>Sravani KOTHA - Packs for a Trip</h1>
+    <br>
+    <form id="checkboxForm">
+        <label style="font-size: 100%; font-family: cursive;"><input type="checkbox" id="light" value="True"> Pack
+            light</label>
+        <label style="font-size: 100%; font-family: cursive;"><input type="checkbox" id="carry" value="True"> Carry
+            on</label>
+        <label style="font-size: 100%; font-family: cursive;"><input type="checkbox" id="tablet" value="False">
+            Tablet</label>
+        <button type="button" onclick="selectPack()" style="font-size: 100%; font-family: cursive;">Select for
+            packing</button>
+    </form>
+    <br>
+    <div id="checkboxResult" style="font-size: 100%; font-family: cursive;"></div>
+
+    <script style="font-size: 100%; font-family: cursive;">
+        let my_pack = {};
+
+        function selectPack() {
+            my_pack = {};
+
+            my_pack.light = document.getElementById('light').checked;
+            my_pack.carry = document.getElementById('carry').checked;
+            my_pack.tablet = document.getElementById('tablet').checked;
+
+            document.getElementById('checkboxResult').innerHTML = JSON.stringify(my_pack);
+        }
+    </script>
+    <br>
+    <form id="updateForm">
+        <label for="travelMonth" style="font-size: 100%; font-family: cursive;">Enter travel month:</label>
+        <input type="text" id="travelMonth" value="May">
+        <br>
+        <label for="tripPrice" style="font-size: 100%; font-family: cursive;">Enter price:</label>
+        <input type="text" id="tripPrice" value="">
+        <br>
+        <br><button type="button" onclick="updatePack()" style="font-size: 100%; font-family: cursive;">Update the
+            pack</button>
+    </form>
+    <br>
+    <div id="Result" style="font-size: 100%; font-family: cursive;"></div>
+
+    <script>
+        function updatePack() {
+
+            const monthInput = document.getElementById('travelMonth').value;
+            const priceInput = document.getElementById('tripPrice').value;
+            my_pack.travelMonth = monthInput;
+            my_pack.price = priceInput;
+
+            document.getElementById('Result').innerHTML = JSON.stringify(my_pack);
+        }
+    </script>
+    <br>
+    <nav>
+        <a href="discount.html" style="font-size: 100%; font-family: cursive; color: #000;">DISCOUNT</a>
+        <a href="animal.html" style="font-size: 100%; font-family: cursive; color: #000;">ANIMAL GAME</a>
+    </nav>
+
+</body>
+</html>

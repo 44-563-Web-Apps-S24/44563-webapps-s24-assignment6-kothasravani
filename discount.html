@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discount Calculations</title>
+</head>
+<body style="background-color: cadetblue;">
+    <h1> Sravani KOTHA- Discount Calculations</h1>
+    <br>
+    <label for="price" style="font-size: 100%; font-family: cursive;">Enter price per:</label>
+    <input type="number" id="price" value="10">
+    <br>
+    <label for="count" style="font-size: 100%; font-family: cursive;">Enter the number of items:</label>
+    <input type="number" id="count" value="9">
+    <br>
+    <label for="reductions" style="font-size: 100%; font-family: cursive;">Enter the discount percent:</label>
+    <input type="number" id="reductions" value="5">
+    <br>
+    <br><button type="button" onclick="discount()" style="font-size: 100%; font-family: cursive;">Show total</button>
+
+    <div id="result" style="font-size: 100%; font-family: cursive;"></div>
+    <br>
+    <form>
+        <label style="font-size: 100%; font-family: cursive;"><input type="radio" name="operation" value="sum"
+                onclick="chooseOp()"> Sum</label>
+        <label style="font-size: 100%; font-family: cursive;"><input type="radio" name="operation" value="multiply"
+                onclick="chooseOp()"> Multiply</label>
+        <label style="font-size: 100%; font-family: cursive;"><input type="radio" name="operation" value="exponent"
+                onclick="chooseOp()"> Exponent</label>
+    </form>
+    <br>
+    <div id="operationResult"  style="font-size: 100%; font-family: cursive;"></div>
+
+    <script style="font-size: 100%; font-family: cursive;">
+        function discount() {
+            const priceInput = document.getElementById('price').value;
+            const countInput = document.getElementById('count').value;
+            const reductionsInput = document.getElementById('reductions').value;
+            let toShow = "Totals are: ";
+
+            for (let i = 0; i < 5; i++) {
+                const discountPercentage = parseInt(reductionsInput) + i;
+                const calculatedCost = (priceInput * countInput * (100 - discountPercentage) / 100).toFixed(2);
+
+                toShow += `${discountPercentage}% is ${calculatedCost}; `;
+            }
+            document.getElementById('result').innerHTML = toShow;
+        }
+
+        function chooseOp() {
+            const priceInput = parseFloat(document.getElementById('price').value);
+            const reductionsInput = parseFloat(document.getElementById('reductions').value);
+            const selectedOperation = document.querySelector('input[name="operation"]:checked').value;
+            let operationResult;  //arthematic operations
+            switch (selectedOperation) {
+                case 'sum':
+                    operationResult = priceInput + reductionsInput;
+                    break;
+                case 'multiply':
+                    operationResult = priceInput * reductionsInput;
+                    break;
+                case 'exponent':
+                    operationResult = Math.pow(priceInput, reductionsInput);
+                    break;
+                default:
+                    operationResult = 'Invalid operation';
+            }
+            document.getElementById('operationResult').innerHTML = `Result of ${selectedOperation} is ${operationResult}`;
+        }
+    </script>
+    <br>
+     <nav>
+        <a href="animal.html"  style="font-size: 100%; font-family: cursive; color: #000;">ANIMAL GAME</a>
+        <a href="packing.html"  style="font-size: 100%; font-family: cursive; color: #000;">PACK YOUR BAGS</a>
+    </nav>
+</body>
+</html>
