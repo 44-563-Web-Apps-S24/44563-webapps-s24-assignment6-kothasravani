@@ -36,6 +36,11 @@
             }
             resultElement.innerHTML = `<p>Correct: ${correct}, Wrong: ${wrong}</p>`; // Update result element checked by condition using if else
             guessAnimalInput.value = ''; // Clear the guess input
+            if (wrong > correct) {// wrong exceeds than crct
+                document.querySelector('button').onclick = function () {
+                    alert("Sorry, too many wrong guesses.");
+                };
+            }
         }
     </script>
     <br>
@@ -66,10 +71,16 @@
         }
     </script>
     <br>
-    <nav>
-        <a href="discount.html"  style="font-size: 100%; font-family: cursive; color: black;">DISCOUNT</a>
-        <a href="packing.html"  style="font-size: 100%; font-family: cursive; color: black;">PACK YOUR BAGS</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary" style="background-color: whitesmoke; padding: 2%;">
+        <div class="collapse navbar-collapse" id="navbarNav">
+                    <a href="discount.html"  style="font-size: 150%; font-family: cursive; color: black; padding-left: 20%;">DISCOUNT PAGE</a>
+                    <a href="packing.html"  style="font-size: 150%; font-family: cursive; color: black;padding-left: 25%;">PACK YOUR BAGS</a>
+        </div>
     </nav>
+    <!-- Include Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
 
 </html>
