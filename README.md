@@ -2,4 +2,4 @@
 # WebApps-S24-Assignment-6
 Introduction to Java Script and DOM
 ***Hosted at***
-<https://github.com/44-563-Web-Apps-S24/44563-webapps-s24-assignment6-kothasravani/settings/pages>
+<https://44-563-web-apps-s24.github.io/44563-webapps-s24-assignment6-kothasravani/animal.html>
