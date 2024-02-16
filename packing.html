@@ -5,23 +5,19 @@
     <title>Packs for a Trip</title>
 </head>
 
-<body style="background-color: cadetblue;">
+<body style="background-color: cadetblue;font-size: 100%; font-family: cursive;">
     <h1>Sravani KOTHA - Packs for a Trip</h1>
     <br>
     <form id="checkboxForm">
-        <label style="font-size: 100%; font-family: cursive;"><input type="checkbox" id="light" value="True"> Pack
-            light</label>
-        <label style="font-size: 100%; font-family: cursive;"><input type="checkbox" id="carry" value="True"> Carry
-            on</label>
-        <label style="font-size: 100%; font-family: cursive;"><input type="checkbox" id="tablet" value="False">
-            Tablet</label>
-        <button type="button" onclick="selectPack()" style="font-size: 100%; font-family: cursive;">Select for
-            packing</button>
+        <label><input type="checkbox" id="light" value="True"> Pack light</label>
+        <label><input type="checkbox" id="carry" value="True"> Carry on</label>
+        <label><input type="checkbox" id="tablet" value="False">Tablet</label>
+        <button type="button" onclick="selectPack()" style="font-size: 100%; font-family: cursive;">Select for packing</button>
     </form>
     <br>
-    <div id="checkboxResult" style="font-size: 100%; font-family: cursive;"></div>
+    <div id="checkboxResult"></div>
 
-    <script style="font-size: 100%; font-family: cursive;">
+    <script>
         let my_pack = {};
 
         function selectPack() {
@@ -36,14 +32,11 @@
     </script>
     <br>
     <form id="updateForm">
-        <label for="travelMonth" style="font-size: 100%; font-family: cursive;">Enter travel month:</label>
-        <input type="text" id="travelMonth" value="May">
-        <br>
-        <label for="tripPrice" style="font-size: 100%; font-family: cursive;">Enter price:</label>
-        <input type="text" id="tripPrice" value="">
-        <br>
-        <br><button type="button" onclick="updatePack()" style="font-size: 100%; font-family: cursive;">Update the
-            pack</button>
+        <label for="travelMonth">Enter travel month:</label>
+        <input type="text" id="travelMonth" value="May" style="font-size: 100%; font-family: cursive;">
+        <br><label for="tripPrice">Enter price:</label>
+        <input type="text" id="tripPrice" value="" style="font-size: 100%; font-family: cursive;">
+        <br><button type="button" onclick="updatePack()" style="font-size: 100%; font-family: cursive;">Update thepack</button>
     </form>
     <br>
     <div id="Result" style="font-size: 100%; font-family: cursive;"></div>

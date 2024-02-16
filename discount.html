@@ -3,34 +3,33 @@
 <head>
     <title>Discount Calculations</title>
 </head>
-<body style="background-color: cadetblue;">
+<body style="background-color: cadetblue; font-size: 100%; font-family: cursive;">
     <h1> Sravani KOTHA- Discount Calculations</h1>
     <br>
-    <label for="price" style="font-size: 100%; font-family: cursive;">Enter price per:</label>
+    <label for="price">Enter price per:</label>
     <input type="number" id="price" value="10">
     <br>
-    <label for="count" style="font-size: 100%; font-family: cursive;">Enter the number of items:</label>
+    <label for="count">Enter the number of items:</label>
     <input type="number" id="count" value="9">
     <br>
-    <label for="reductions" style="font-size: 100%; font-family: cursive;">Enter the discount percent:</label>
+    <label for="reductions">Enter the discount percent:</label>
     <input type="number" id="reductions" value="5">
+    <br><button type="button" onclick="discount()"  style="font-size: 100%; font-family: cursive;">Show total</button>
     <br>
-    <br><button type="button" onclick="discount()" style="font-size: 100%; font-family: cursive;">Show total</button>
-
-    <div id="result" style="font-size: 100%; font-family: cursive;"></div>
+    <br><div id="result"></div>
     <br>
     <form>
-        <label style="font-size: 100%; font-family: cursive;"><input type="radio" name="operation" value="sum"
+        <label><input type="radio" name="operation" value="sum"
                 onclick="chooseOp()"> Sum</label>
-        <label style="font-size: 100%; font-family: cursive;"><input type="radio" name="operation" value="multiply"
+        <label><input type="radio" name="operation" value="multiply"
                 onclick="chooseOp()"> Multiply</label>
-        <label style="font-size: 100%; font-family: cursive;"><input type="radio" name="operation" value="exponent"
+        <label><input type="radio" name="operation" value="exponent"
                 onclick="chooseOp()"> Exponent</label>
     </form>
     <br>
-    <div id="operationResult"  style="font-size: 100%; font-family: cursive;"></div>
+    <div id="operationResult"></div>
 
-    <script style="font-size: 100%; font-family: cursive;">
+    <script>
         function discount() {
             const priceInput = document.getElementById('price').value;
             const countInput = document.getElementById('count').value;

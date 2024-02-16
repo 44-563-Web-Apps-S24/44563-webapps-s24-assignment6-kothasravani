@@ -4,19 +4,19 @@
     <title>Animal Mortal</title>
 </head>
 
-<body style="background-color: cadetblue;">
-    <h1 style="font-size: 200%; font-family: cursive;"> Animal game by Sravani Kotha</h1>
+<body style="background-color: cadetblue; font-size: 100%; font-family: cursive;">
+    <h1> Animal game by Sravani Kotha</h1>
     <form>
-        <label for="hiddenAnimal" style="font-size: 100%; font-family: cursive;">The hidden animal type:</label>
+        <label for="hiddenAnimal">The hidden animal type:</label>
         <input type="password" id="hiddenAnimal" value="Chicken">
-        <label for="guessAnimal" style="font-size: 100%; font-family: cursive;">Guess the animal:</label>
-        <input style="font-size: 100%; font-family: cursive;" type="text" id="guessAnimal">
         <br>
+        <label for="guessAnimal">Guess the animal:</label>
+        <input type="text" id="guessAnimal">
         <br><button type="button" onclick="checkAnimal()" style="font-size: 100%; font-family: cursive;">Check the
             guess</button>
     </form>
     <br>
-    <div id="result" style="font-size: 100%; font-family: cursive;"></div>
+    <div id="result"></div>
     <script>
         let wrong = 0; // Global variables 
         let correct = 0;
@@ -41,7 +41,7 @@
         }
     </script>
     <br>
-    <div id="imageContainer" style="font-size: 100%; font-family: cursive;">
+    <div id="imageContainer">
         <img src="drink1.png" alt="Drink 1" id="selectedImage" onclick="selectImage()" width="150" height="150">
     </div>
 
