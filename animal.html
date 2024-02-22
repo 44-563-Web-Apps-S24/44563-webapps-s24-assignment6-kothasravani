@@ -26,9 +26,11 @@
             const resultElement = document.getElementById('result');
             if (hiddenAnimalInput.value === guessAnimalInput.value) {// Compare values and update counts 0 or 1
                 correct++;
+                console.log(correct);
                 alert("Ruff ruff");
             } else {
                 wrong++;
+                console.log(wrong);
                 alert("Grrrr");
             }
             resultElement.innerHTML = `<p>Correct: ${correct}, Wrong: ${wrong}</p>`; // Update result element checked by condition using if else
